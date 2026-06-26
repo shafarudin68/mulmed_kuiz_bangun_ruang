@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Tambah Soal</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h1>➕ Tambah Soal</h1>
+
+<form method="POST">
+
+<input
+type="text"
+name="question"
+placeholder="Pertanyaan"
+required>
+
+<input
+type="text"
+name="option_a"
+placeholder="Pilihan A"
+required>
+
+<input
+type="text"
+name="option_b"
+placeholder="Pilihan B"
+required>
+
+<input
+type="text"
+name="option_c"
+placeholder="Pilihan C"
+required>
+
+<input
+type="text"
+name="option_d"
+placeholder="Pilihan D"
+required>
+
+<select name="answer">
+
+<option value="A">Jawaban A</option>
+
+<option value="B">Jawaban B</option>
+
+<option value="C">Jawaban C</option>
+
+<option value="D">Jawaban D</option>
+
+</select>
+
+<br><br>
+
+<button class="btn">
+
+Simpan Soal
+
+</button>
+
+</form>
+
+<br>
+
+<a href="/admin" class="logout">
+
+Kembali
+
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login Quiz</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card login-card">
+
+            <h1>🔐 Login Quiz</h1>
+
+            <p class="subtitle">
+                Masukkan nama untuk memulai kuis
+            </p>
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="alert">
+                        {{ messages[0] }}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            <form action="{{ url_for('login') }}" method="POST">
+
+                <input
+                    type="text"
+                    name="nama"
+                    placeholder="Masukkan Nama"
+                    required
+                >
+
+                <button type="submit" class="btn">
+                    Masuk
+                </button>
+
+            </form>
+
+            <a href="/" class="back-btn">
+                ← Kembali ke Beranda
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

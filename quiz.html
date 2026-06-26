@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Bangun Ruang</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card quiz-card">
+
+        <div class="quiz-header">
+            <h2>Soal {{ nomor }} / {{ total }}</h2>
+
+            <div class="timer">
+                ⏱ <span id="timer">30</span> detik
+            </div>
+        </div>
+
+        <div class="progress">
+            <div class="progress-bar"
+                 style="width: {{ progress }}%;">
+            </div>
+        </div>
+
+        <div class="question">
+            {{ soal.question }}
+        </div>
+
+        <form method="POST">
+
+            <label class="option">
+                <input type="radio" name="answer" value="A" required>
+                {{ soal.option_a }}
+            </label>
+
+            <label class="option">
+                <input type="radio" name="answer" value="B">
+                {{ soal.option_b }}
+            </label>
+
+            <label class="option">
+                <input type="radio" name="answer" value="C">
+                {{ soal.option_c }}
+            </label>
+
+            <label class="option">
+                <input type="radio" name="answer" value="D">
+                {{ soal.option_d }}
+            </label>
+
+            <button type="submit" class="btn">
+                Soal Berikutnya →
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

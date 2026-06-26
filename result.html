@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Hasil Quiz</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card result-card">
+
+        <h1>🎉 Quiz Selesai</h1>
+
+        <h2>{{ student }}</h2>
+
+        <h3>Nilai Kamu</h3>
+
+        <div class="score">
+
+            {{ score }}
+
+        </div>
+
+        {% if score >= 90 %}
+
+            <p class="grade">🏆 Sangat Baik</p>
+
+        {% elif score >= 70 %}
+
+            <p class="grade">🥇 Baik</p>
+
+        {% elif score >= 50 %}
+
+            <p class="grade">🥈 Cukup</p>
+
+        {% else %}
+
+            <p class="grade">📚 Perlu Belajar Lagi</p>
+
+        {% endif %}
+
+        <br>
+
+        <a href="/reset" class="btn">
+
+            Ulangi Quiz
+
+        </a>
+
+        <br><br>
+
+        <a href="/dashboard" class="logout">
+
+            Dashboard
+
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

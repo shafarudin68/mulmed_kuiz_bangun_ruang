@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Quiz</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card admin-card">
+
+        <h1>📚 Panel Admin</h1>
+        <div class="stats">
+
+    <div class="stat-card">
+        <h3>👨 Siswa</h3>
+        <h2>{{ total_siswa }}</h2>
+    </div>
+
+    <div class="stat-card">
+        <h3>📖 Soal</h3>
+        <h2>{{ total_soal }}</h2>
+    </div>
+
+    <div class="stat-card">
+        <h3>🏆 Nilai Tertinggi</h3>
+        <h2>{{ nilai_tertinggi }}</h2>
+    </div>
+
+    <div class="stat-card">
+        <h3>📈 Rata-rata</h3>
+        <h2>{{ rata_rata }}</h2>
+    </div>
+
+</div>
+
+<br>
+
+        <h2>Daftar Soal</h2>
+
+        <!-- Tombol Tambah Soal -->
+        <a href="/add_question" class="btn">
+            ➕ Tambah Soal
+        </a>
+
+        <br><br>
+
+        <table>
+
+            <tr>
+
+                <th>No</th>
+
+                <th>Pertanyaan</th>
+
+                <th>Jawaban</th>
+
+            </tr>
+
+            {% for soal in questions %}
+
+            <tr>
+
+                <td>{{ soal.id }}</td>
+
+                <td>{{ soal.question }}</td>
+
+                <td>{{ soal.answer }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+        <br><br>
+
+        <h2>🏆 Leaderboard</h2>
+
+        <table>
+
+            <tr>
+
+                <th>Peringkat</th>
+
+                <th>Nama</th>
+
+                <th>Nilai</th>
+
+            </tr>
+
+            {% for hasil in results %}
+
+            <tr>
+
+                <td>{{ loop.index }}</td>
+
+                <td>{{ hasil.student }}</td>
+
+                <td>{{ hasil.score }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+        <br><br>
+
+        <a href="/" class="btn">
+            ⬅ Kembali ke Beranda
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
